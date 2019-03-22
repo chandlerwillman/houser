@@ -7,7 +7,7 @@ class Wizard extends Component {
         address: '',
         city: '',
         state: '',
-        zipcode: ''
+        zip: ''
     };
 
     constructor() {
@@ -17,7 +17,7 @@ class Wizard extends Component {
         this.handleAddressChange = this.handleAddressChange.bind(this);
         this.handleCityChange = this.handleCityChange.bind(this);
         this.handleStateChange = this.handleStateChange.bind(this);
-        this.handleZipcodeChange = this.handleZipcodeChange.bind(this);
+        this.handleZipChange = this.handleZipChange.bind(this);
     };
     
     render() {
@@ -54,7 +54,7 @@ class Wizard extends Component {
                     <input 
                         type="text"
                         value={this.state.zipcode}
-                        onChange={this.handleZipcodeChange} />
+                        onChange={this.handleZipChange} />
 
                 </form>
             </div>
@@ -85,9 +85,9 @@ class Wizard extends Component {
         });
     }
 
-    handleZipcodeChange(event) {
+    handleZipChange(event) {
         this.setState({
-            zipcode: event.target.value,
+            zip: event.target.value,
         });
     }
 }
