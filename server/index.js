@@ -25,6 +25,7 @@ massive(DB_CONNECTION_STRING).then((dbInstance) => {
 
 //endpoints
 app.get('/api/houses', controller.getAll);
+app.post('/api/houses', controller.create);
 
 //get server listening on a port
 app.listen(4000, () => {

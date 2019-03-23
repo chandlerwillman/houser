@@ -9,4 +9,14 @@ module.exports = {
         })
     },
 
+    create: (req,res) => {
+        const { name, address, city, state, zip } = req.body;
+        const db = req.app.get('db');
+
+        db.create_house([name, address, city, state, zip]).then((dbResponse) => {
+            res.status(200).send('Created');
+        }).catch(() => {
+            res.status(500).send('Failed to create');
+        });
+    },
 }

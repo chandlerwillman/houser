@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class Wizard extends Component {
     state = {
@@ -18,6 +19,7 @@ class Wizard extends Component {
         this.handleCityChange = this.handleCityChange.bind(this);
         this.handleStateChange = this.handleStateChange.bind(this);
         this.handleZipChange = this.handleZipChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
     
     render() {
@@ -29,7 +31,7 @@ class Wizard extends Component {
                     <button>Cancel</button>
                 </Link>
 
-                <form>
+                <form onSubmit={(event) => this.handleSubmit(event)}>
                     Property Name
                     <input 
                         type="text"
@@ -55,7 +57,9 @@ class Wizard extends Component {
                         type="text"
                         value={this.state.zipcode}
                         onChange={this.handleZipChange} />
-
+                    <button
+                        type="submit"
+                        >Complete</button>
                 </form>
             </div>
         );
@@ -88,6 +92,18 @@ class Wizard extends Component {
     handleZipChange(event) {
         this.setState({
             zip: event.target.value,
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        const { name, address, city, state, zip } = this.state;
+
+        axios.post('http://localhost:4000/api/houses', {
+            name, address, city, state, zip,
+        }).then(() => {
+            this.props.history.push('/');
         });
     }
 }
