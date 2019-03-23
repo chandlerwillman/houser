@@ -13,26 +13,41 @@ class Dashboard extends Component {
         };
     }
 
+    //lifecycle methods
     componentDidMount() {
-        axios.get('http://localhost:4000/api/houses')
+        this.getHouses();
+    }
+
+    //methods
+    getHouses = () => {
+        axios.get('/api/houses')
             .then(response => {
                 this.setState({
                     houses: response.data,
                 });
             });
-    }
-
-    getHouses = () => {
+    };
+    
+    deleteHouse = (id) => {
+        axios.delete(`/api/houses/${id}`)
+            .then(response => {
+                this.getHouses();
+            });
+    };
+    
+    mapHouses = () => {
         return this.state.houses.map((house, index) => {
             return(
                 <House
                     house={house}
                     key={index} 
+                    deleteHouse={this.deleteHouse}
                 />
             )
         });
     }
-    
+
+    //render
     render() {
         return (
             <div>
@@ -41,7 +56,7 @@ class Dashboard extends Component {
                     <button>Add New Property</button>
                 </Link>
 
-                {this.getHouses()}
+                {this.mapHouses()}
 
             </div>
         );

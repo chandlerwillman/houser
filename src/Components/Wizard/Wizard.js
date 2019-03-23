@@ -8,7 +8,7 @@ class Wizard extends Component {
         address: '',
         city: '',
         state: '',
-        zip: ''
+        zip: 0
     };
 
     constructor() {

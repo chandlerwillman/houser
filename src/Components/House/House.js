@@ -1,15 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function House(props) {
+    const { name, address, city, state, zip, id } = props.house;
+    
     return (
         <div>
-            <div>Property Name: {props.house.name}</div>
-            <div>Address: {props.house.address}</div>
-            <div>City: {props.house.city}</div>
-            <div>State: {props.house.state}</div>
-            <div>Zip: {props.house.zip}</div>
-            <button>Delete</button>
-
+            <div>Property Name: {name}</div>
+            <div>Address: {address}</div>
+            <div>City: {city}</div>
+            <div>State: {state}</div>
+            <div>Zip: {zip}</div>
+            <button onClick={() => props.deleteHouse(id)}>Delete</button>
         </div>
     );
 }
