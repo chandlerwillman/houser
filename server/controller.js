@@ -11,9 +11,9 @@ module.exports = {
 
     create: (req,res) => {
         const db = req.app.get('db');
-        const { name, address, city, state, zip } = req.body;
+        const { name, address, city, state, zip, img, monthlyMortgage, desiredRent} = req.body;
 
-        db.create_house([name, address, city, state, zip]).then((dbResponse) => {
+        db.create_house([name, address, city, state, zip, img, monthlyMortgage, desiredRent]).then((dbResponse) => {
             res.status(200).send('Created');
         }).catch((error) => {
             console.log('create:', error)
