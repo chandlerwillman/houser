@@ -1,0 +1,12 @@
+.house {
+    margin: 10px;
+    background-color: #DEDEDE;
+    padding: 5px;
+}
+.house img {
+    width: 200px;
+}
+.house button {
+    margin-top: 5px;
+    margin-right: 5px;
+}

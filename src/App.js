@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {HashRouter} from 'react-router-dom';
+import 'bulma/css/bulma.css';
 import './App.css';
 
 import Routes from './routes';
@@ -11,7 +12,7 @@ class App extends Component {
       <HashRouter>
         <div className="App">
           <Header />
-          {Routes}
+          <div className="app-content">{Routes}</div>
         </div>
       </HashRouter>
     );

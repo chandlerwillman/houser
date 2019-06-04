@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './Wizard.css';
 
 import { clearFields } from '../../redux/store';
 
@@ -12,17 +13,19 @@ class Wizard extends Component {
     
     render() {
         return (
-            <div>
-                Add New Listing
+            <div className="wizard">
 
-                <Link to={'/'}>
-                    <button onClick={(e) => {this.props.clearFields()}}>Cancel</button>
-                </Link>
-
-                <Route path="/wizard/step1" component={Step1} />
-                <Route path="/wizard/step2" component={Step2} />
-                <Route path="/wizard/step3" component={Step3} />
-
+                <div className="columns">
+                    <h1 className="column">Add New Listing</h1>
+                    <Link className="column" align="right" to={'/'}>
+                        <button className="button" onClick={(e) => {this.props.clearFields()}}>Cancel</button>
+                    </Link> 
+                </div>
+                <div className="wizard-form"> 
+                    <Route path="/wizard/step1" component={Step1} />
+                    <Route path="/wizard/step2" component={Step2} />
+                    <Route path="/wizard/step3" component={Step3} />
+                </div>
             </div>
         );
     }

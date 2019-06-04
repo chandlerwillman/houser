@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Dashboard.css';
 
 import House from '../House/House';
 
@@ -50,15 +51,18 @@ class Dashboard extends Component {
     //render
     render() {
         return (
-            <div>
-                Dashboard
-                <Link to={'/wizard/step1'}>
-                    <button>Add New Property</button>
-                </Link>
-
+            <div className="dashboard">
+                <div className="columns">
+                    <h1 className="column">Dashboard</h1>
+                    <Link className="column" align="right" to={'/wizard/step1'}>
+                        <button className="button" >Add New Property</button>
+                    </Link>
+                </div>
+                <hr />
+                <h2>Home Listings</h2>
                 {this.mapHouses()}
-
             </div>
+                
         );
     }
 }

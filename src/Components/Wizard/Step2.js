@@ -9,20 +9,22 @@ class Step2 extends Component {
     render() {
         return (
             <div>
-                Add New Listing
-                
                 <form>
-                    Image URL
+                    <div className="field">
+                    <label className="label">Image URL</label>
                     <input 
                         type="text"
                         value={this.props.img}
                         onChange={(e) => this.props.updateField('img', e.target.value)} />
-                    <Link to={'/wizard/step1'}>
-                        <button>Previous Step</button>
-                    </Link>
-                    <Link to={'/wizard/step3'}>
-                        <button>Next Step</button>
-                    </Link>
+                    </div>
+                    <div className="wizard-footer columns">
+                        <Link className="column" align="left" to={'/wizard/step1'}>
+                            <button className="button">Previous Step</button>
+                        </Link>
+                        <Link className="column" align="right" to={'/wizard/step3'}>
+                            <button className="button">Next Step</button>
+                        </Link>
+                    </div>
                 </form>
             </div>
         );

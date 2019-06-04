@@ -1,0 +1,11 @@
+form {
+    margin: 25px 50px 100px 50px;
+}
+button .is-complete {
+    background-color: #8AEA92;
+    color: black;
+}
+.wizard-footer button {
+    background-color: #3B5249;
+    color: white;
+}

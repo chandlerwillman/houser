@@ -10,25 +10,29 @@ class Step3 extends Component {
     render() {
         return (
             <div>
-                Add New Listing
-                
                 <form onSubmit={(event) => this.handleSubmit(event)}>
-                    Monthly Mortgage Amount
-                    <input 
-                        type="text"
-                        value={this.props.monthlyMortgage}
-                        onChange={(e) => this.props.updateField('monthlyMortgage', e.target.value)} />
-                    Desired Monthly Rent
-                    <input 
-                        type="text"
-                        value={this.props.desiredRent}
-                        onChange={(e) => this.props.updateField('desiredRent', e.target.value)} />
-                    <Link to={'/wizard/step2'}>
-                        <button>Previous Step</button>
-                    </Link>
-                    <button
-                        type="submit"
-                        >Complete</button>
+                    <div className="field">
+                        <label className="label">Monthly Mortgage Amount</label>
+                        <input 
+                            type="text"
+                            value={this.props.monthlyMortgage}
+                            onChange={(e) => this.props.updateField('monthlyMortgage', e.target.value)} />
+                    </div>
+                    <div className="field">
+                        <label className="label">Desired Monthly Rent</label>
+                        <input 
+                            type="text"
+                            value={this.props.desiredRent}
+                            onChange={(e) => this.props.updateField('desiredRent', e.target.value)} />
+                    </div>                    
+                    <div className="wizard-footer columns">
+                        <Link className="column" to={'/wizard/step2'}>
+                            <button className="button">Previous Step</button>
+                        </Link>
+                        <div className="column" align="right">
+                            <button className="button is-success" type="submit">Complete</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         );
