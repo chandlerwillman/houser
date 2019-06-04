@@ -55,7 +55,7 @@ class Dashboard extends Component {
                 <div className="columns">
                     <h1 className="column">Dashboard</h1>
                     <Link className="column" align="right" to={'/wizard/step1'}>
-                        <button className="button" >Add New Property</button>
+                        <button className="button is-success" >Add New Property</button>
                     </Link>
                 </div>
                 <hr />
